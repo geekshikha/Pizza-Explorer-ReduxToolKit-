@@ -23,11 +23,13 @@ const PizzaList = () => {
             <li key={pizza.id}>
               <h3>{pizza.name}</h3>
               <img src={pizza.image} width={"300px"} alt="" />
-              <h5>no of times bought:{pizza.bought}</h5>
+              <h5>
+                no of times bought:{pizza.bought}{" "}
+                <button onClick={() => dispatch(toggleFavorites(pizza.id))}>
+                  {userFavPizza.includes(pizza.id) ? "❤️" : "♡"}
+                </button>
+              </h5>
               <p>{pizza.description}</p>
-              <button onClick={() => dispatch(toggleFavorites(pizza.id))}>
-                {userFavPizza.includes(pizza.id) ? "❤️" : "♡"}
-              </button>
             </li>
           );
         })}
